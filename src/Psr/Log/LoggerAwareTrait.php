@@ -1,5 +1,5 @@
 <?php
-namespace Application\Log;
+namespace Psr\Log;
 
 /**
  * Describes a logger-aware instance implementation
