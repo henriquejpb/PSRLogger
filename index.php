@@ -14,15 +14,3 @@ $userJose = new User('José');
 $service->addUser($userHenrique);
 $service->addUser($userJose);
 $service->removeUser($userJose);
-<<<<<<< HEAD
-=======
-
-/* $logger->info("This is an info"); */
-/* $logger->warning("This is a warning"); */
-/* $logger->notice("This is a notice"); */
-/* $logger->debug("This is a debug note"); */
-/* $logger->emergency("This is an emergency"); */
-/* $logger->critical("This is a critical error"); */
-/* $logger->error(new Exception("foo")); */
->>>>>>> b1d51e6a2c0e39d06c04c5b1aed291fae717a4c1
-
