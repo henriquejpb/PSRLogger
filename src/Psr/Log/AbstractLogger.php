@@ -1,7 +1,11 @@
 <?php
 namespace Psr\Log;
 
-abstract class AbstractLogger implements LoggerInterface {
+/**
+ * Implements common features of logger classes.
+ */
+abstract class AbstractLogger implements LoggerInterface 
+{
 
     /**
      * Outputs the log message to somewhere.
@@ -19,7 +23,8 @@ abstract class AbstractLogger implements LoggerInterface {
      *
      * @return void
      */
-    private function putMessage($prefix, $message, array $context = array()) {
+    private function putMessage($prefix, $message, array $context = array()) 
+    {
         $this->outputLog($prefix . $this->interpolate($message, $context));
     }
 
@@ -37,7 +42,8 @@ abstract class AbstractLogger implements LoggerInterface {
      *
      * @return string
      */
-    private function interpolate($message, array $context = array()) {
+    private function interpolate($message, array $context = array()) 
+    {
         $replace = array();
         foreach ($context as $key => $val) {
             $replace['{' . $key . '}'] = $val;
@@ -50,56 +56,64 @@ abstract class AbstractLogger implements LoggerInterface {
     /**
      * {@inherit-doc}
      */
-    public function emergency($message, array $context= array()) {
+    public function emergency($message, array $context= array()) 
+    {
         $this->putMessage("Emergency: ", $message, $context);
     } 
 
     /**
      * {@inherit-doc}
      */
-    public function alert($message, array $context= array()) {
+    public function alert($message, array $context= array()) 
+    {
         $this->putMessage("Alert: ", $message, $context);
     } 
 
     /**
      * {@inherit-doc}
      */
-    public function critical($message, array $context= array()) {
+    public function critical($message, array $context= array()) 
+    {
         $this->putMessage("Critical: ", $message, $context);
     } 
 
     /**
      * {@inherit-doc}
      */
-    public function error($message, array $context= array()) {
+    public function error($message, array $context= array()) 
+    {
         $this->putMessage("Error: ", $message, $context);
     } 
 
     /**
      * {@inherit-doc}
      */
-    public function warning($message, array $context= array()) {
+    public function warning($message, array $context= array()) 
+    {
         $this->putMessage("Warning: ", $message, $context);
     } 
 
     /**
      * {@inherit-doc}
      */
-    public function notice($message, array $context= array()) {
+    public function notice($message, array $context= array()) 
+    {
         $this->putMessage("Notice: ", $message, $context);
     } 
 
     /**
      * {@inherit-doc}
      */
-    public function info($message, array $context= array()) {
+    public function info($message, array $context= array()) 
+    {
         $this->putMessage("Info: ", $message, $context);
     } 
 
     /**
      * {@inherit-doc}
      */
-    public function debug($message, array $context= array()) {
+    public function debug($message, array $context= array()) 
+    {
         $this->putMessage("Debug: ", $message, $context);
     } 
 
@@ -108,7 +122,8 @@ abstract class AbstractLogger implements LoggerInterface {
      *
      * If '$level` is not a valid `LogLevel` value, the log will be of type INFO.
      */
-    public function log($level, $message, array $context= array()) {
+    public function log($level, $message, array $context= array()) 
+    {
         switch ($level) {
         case LogLevel::EMERGENCY:
             $this->emergency($message, $context);

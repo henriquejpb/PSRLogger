@@ -1,8 +1,6 @@
 <?php
 namespace Application\Log;
 
-use Psr\Log\LoggerInterface;
-
 /**
  * Describes a logger-aware instance implementation
  */
@@ -20,7 +18,8 @@ trait LoggerAwareTrait {
      * @param LoggerInterface $logger
      * @return null
      */
-    public function setLogger(LoggerInterface $logger) {
+    public function setLogger(LoggerInterface $logger) 
+    {
         $this->logger = $logger;
     }
 
@@ -29,7 +28,8 @@ trait LoggerAwareTrait {
      *
      * @return Psr\Log\LoggerInterface
      */
-    protected function getLogger() {
+    protected function getLogger() 
+    {
         return $this->logger;
     }
 }
