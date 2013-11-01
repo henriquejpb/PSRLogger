@@ -25,7 +25,8 @@ abstract class AbstractLogger implements LoggerInterface
      */
     private function putMessage($prefix, $message, array $context = array()) 
     {
-        $this->outputLog($prefix . $this->interpolate($message, $context));
+        $this->outputLog('[' . date('Y-m-d H:i:s') . '] ' . 
+            $prefix . $this->interpolate($message, $context) . PHP_EOL);
     }
 
     /**
@@ -46,11 +47,11 @@ abstract class AbstractLogger implements LoggerInterface
     {
         $replace = array();
         foreach ($context as $key => $val) {
-            $replace['{' . $key . '}'] = $val;
+            $replace['{' . $key . '}'] = (string) $val;
         }
 
         // interpolate replacement values into the message and return
-        return strtr($message, $replace);
+        return strtr((string) $message, $replace);
     }
 
     /**
